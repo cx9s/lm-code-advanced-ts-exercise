@@ -1,4 +1,4 @@
-import { fetchPost } from "../../../api/fetch_post.mjs";
+import { fetchPost } from "../../../api/fetch_post.js";
 import { clear, print, prompt, printNewLine } from "../../../ui/console.mjs";
 
 export async function browsePosts() {

@@ -1,4 +1,4 @@
-import { fetchAllPosts } from "../../../api/fetch_all_posts.mjs";
+import { fetchAllPosts } from "../../../api/fetch_all_posts.js";
 import { clear, print, prompt, printNewLine } from "../../../ui/console.mjs";
 
 export async function showAllPosts() {

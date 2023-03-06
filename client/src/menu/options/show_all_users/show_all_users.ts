@@ -1,4 +1,4 @@
-import { fetchAllUsers } from "../../../api/fetch_all_users.mjs";
+import { fetchAllUsers } from "../../../api/fetch_all_users.js";
 import { clear, print, prompt, printNewLine } from "../../../ui/console.mjs";
 
 export async function showAllUsers() {
