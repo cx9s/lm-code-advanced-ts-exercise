@@ -1,4 +1,4 @@
-import { states, States } from "./states";
+import { States } from "./states";
 
 export class State {
 	#state: States = "MENU";
