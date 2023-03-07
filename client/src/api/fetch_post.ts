@@ -1,6 +1,7 @@
+import { Post } from "../types/types";
 import { baseUrl } from "./base_url";
 
-export async function fetchPost(id: string) {
+export const fetchPost = async (id: string): Promise<Post[]> => {
 	try {
 		const result = await fetch(baseUrl + "/api/posts/" + id);
 		const post = await result.json();
@@ -8,4 +9,4 @@ export async function fetchPost(id: string) {
 	} catch {
 		return [];
 	}
-}
+};
