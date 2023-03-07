@@ -8,14 +8,14 @@ import { State } from "./states/state";
 import { states } from "./states/states";
 import { clear, print, printNewLine, prompt } from "./ui/console";
 
-async function begin() {
+const begin = async () => {
 	clear(true);
 	print("👋 Welcome to our cool blog browser!");
 	await prompt("⌨️ Press [ENTER] to continue! 🕶️");
 	main();
-}
+};
 
-async function main() {
+const main = async () => {
 	let state = new State();
 
 	while (true) {
@@ -75,6 +75,6 @@ async function main() {
 				break;
 		}
 	}
-}
+};
 
 begin();
