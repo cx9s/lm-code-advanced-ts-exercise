@@ -1,6 +1,6 @@
 import { baseUrl } from "./base_url";
 
-export async function fetchAllUsers() {
+export const fetchAllUsers = async () => {
 	try {
 		const result = await fetch(baseUrl + "/api/users/all");
 		const users = await result.json();
@@ -8,4 +8,4 @@ export async function fetchAllUsers() {
 	} catch {
 		return [];
 	}
-}
+};
