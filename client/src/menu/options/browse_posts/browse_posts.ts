@@ -1,7 +1,8 @@
 import { fetchPost } from "../../../api/fetch_post";
+import { Post } from "../../../types/types";
 import { clear, print, prompt, printNewLine } from "../../../ui/console";
 
-export const browsePosts = async () => {
+export const browsePosts = async (): Promise<Post[]> => {
 	clear();
 
 	const desiredPostId = await prompt("Enter Post ID");

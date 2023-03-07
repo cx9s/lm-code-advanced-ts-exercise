@@ -1,7 +1,8 @@
 import { fetchAllPosts } from "../../../api/fetch_all_posts";
+import { Post } from "../../../types/types";
 import { clear, print, prompt, printNewLine } from "../../../ui/console";
 
-export async function showAllPosts() {
+export const showAllPosts = async (): Promise<Post[]> => {
 	clear("yes");
 
 	printNewLine();
@@ -18,4 +19,4 @@ export async function showAllPosts() {
 	await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
 
 	return result;
-}
+};
