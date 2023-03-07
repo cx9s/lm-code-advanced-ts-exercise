@@ -5,6 +5,7 @@ import { sendMessage } from "./menu/options/send_message/send_message";
 import { showAllPosts } from "./menu/options/show_all_posts/show_all_posts";
 import { showAllUsers } from "./menu/options/show_all_users/show_all_users";
 import { State } from "./states/state";
+import { States } from "./states/states";
 import { clear, print, printNewLine, prompt } from "./ui/console";
 
 const begin = async () => {
@@ -24,7 +25,7 @@ const main = async () => {
 				state.set(newMenuOption);
 				break;
 			case "SEND_MESSAGE":
-				const nextState = await sendMessage();
+				const nextState = (await sendMessage()) as States;
 				state.set(nextState);
 				break;
 			case "SHOW_POSTS":
