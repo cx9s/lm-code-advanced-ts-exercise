@@ -8,6 +8,7 @@ export const showMenu = async (): Promise<States> => {
 	print("2. Show all users", false);
 	print("3. Browse posts", false);
 	print("4. Add user", false);
+	print("5. Add post", false);
 	printNewLine();
 
 	const result = await prompt("What shall we do? ");
@@ -17,6 +18,7 @@ export const showMenu = async (): Promise<States> => {
 	if (result === "2") return "SHOW_USERS";
 	if (result === "3") return "BROWSE_POSTS";
 	if (result === "4") return "ADD_USER";
+	if (result === "5") return "ADD_POST";
 	// trapdoor
 	if (result === "c") return "CABBAGE";
 

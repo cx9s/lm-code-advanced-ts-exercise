@@ -12,7 +12,7 @@ export const addUser = async (): Promise<User[]> => {
 
 	const result = await addUserToServer(name);
 
-	print("🥳 New User added successfully!");
+	print("🥳 New user added successfully!");
 	print(`🥳 There are ${result.length} users in total. Here they are:`);
 	console.log(result);
 

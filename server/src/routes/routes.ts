@@ -2,7 +2,7 @@ import * as express from "express";
 import { Express } from "express";
 import { getAllPosts } from "../services/posts_service";
 import { getAllUsers } from "../services/users_service";
-import { User } from "../types/posts.types";
+import { Post, User } from "../types/posts.types";
 
 /*
 
@@ -69,6 +69,25 @@ function addAPIRoutes(app: Express) {
 	console.log("✍️  Adding blog post routes...");
 	apiRouter.get("/posts/all", (req, res) => {
 		res.status(200).send(JSON.stringify(getAllPosts()));
+	});
+
+	// add a post to server
+	apiRouter.post("/posts/add", (req, res) => {
+		const { body } = req;
+
+		console.log(`👋 Received a new post with title "${body.title}"`);
+		console.log(body);
+
+		const posts = getAllPosts();
+		const author = getAllUsers().find((u) => u.id === body.authorId);
+		const newPost = {
+			id: `${posts.length + 1}`,
+			title: body.title,
+			text: body.text,
+			author: author ?? getAllUsers()[0],
+		} as Post;
+		posts.push(newPost);
+		res.status(200).send(JSON.stringify(posts));
 	});
 
 	apiRouter.get("/posts/:id", (req, res) => {

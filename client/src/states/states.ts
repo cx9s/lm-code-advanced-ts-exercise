@@ -5,6 +5,7 @@ export const states = [
 	"SHOW_USERS",
 	"BROWSE_POSTS",
 	"ADD_USER",
+	"ADD_POST",
 	"UNKNOWN",
 	"CABBAGE",
 ] as const;
