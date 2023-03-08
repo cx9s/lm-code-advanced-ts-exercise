@@ -2,6 +2,7 @@ import * as express from "express";
 import { Express } from "express";
 import { getAllPosts } from "../services/posts_service";
 import { getAllUsers } from "../services/users_service";
+import { User } from "../types/posts.types";
 
 /*
 
@@ -86,7 +87,14 @@ function addAPIRoutes(app: Express) {
 	apiRouter.post("/users/add", (req, res) => {
 		const { body } = req;
 		console.log(`👋 Received a new user "${body.name}"`);
-		res.status(200).send(JSON.stringify(getAllUsers()));
+		const users = getAllUsers();
+		const newUser = {
+			id: `${users.length + 1}`,
+			name: body.name,
+			creationDate: new Date(),
+		} as User;
+		users.push(newUser);
+		res.status(200).send(JSON.stringify(users));
 	});
 
 	apiRouter.get("/users/:id", (req, res) => {
